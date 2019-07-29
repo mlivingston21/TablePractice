@@ -8,25 +8,55 @@
 
 import UIKit
 
-class DrinksTableTableViewController: UITableViewController {
+struct Drinks {
+    var id : Int
+    var title : String
+    var text : String
+    var image : String
+}
 
+class StoriesTableViewController: UITableViewController {
+    // the rest of your code
+}
+
+class DrinksTableTableViewController: UITableViewController {
+    var allDrinks = [
+            Drinks(id: 1,
+                title: "Juice",
+                  text: "Can be juice juice from any fruit or vegetable.",
+                  image: "Juice"),
+            Drinks(id: 2,
+                  title: "Soda",
+                  text: "carbonated sugary drink",
+                  image: "soda"),
+            Drinks(id: 3,
+                  title: "Coffee",
+                  text: "made from coffee beans and contains caffeine",
+                  image: "coffee")
+        ]
+        
+        // the rest of your code
+    
+
+    
     
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return allDrinks.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
 
-        cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
+        cell.textLabel?.text = allDrinks[indexPath.row].title
+
 
 
         return cell
