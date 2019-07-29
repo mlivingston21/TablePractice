@@ -24,7 +24,7 @@ class DrinksTableTableViewController: UITableViewController {
             Drinks(id: 1,
                 title: "Juice",
                   text: "Can be juice juice from any fruit or vegetable.",
-                  image: "Juice"),
+                  image: "juice"),
             Drinks(id: 2,
                   title: "Soda",
                   text: "carbonated sugary drink",
@@ -56,6 +56,10 @@ class DrinksTableTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
 
         cell.textLabel?.text = allDrinks[indexPath.row].title
+        
+        cell.detailTextLabel?.text = allDrinks[indexPath.row].text
+        
+        cell.imageView?.image = UIImage(named: allDrinks[indexPath.row].image)
 
 
 
